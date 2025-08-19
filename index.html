@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raízes Ancestral - Ritual de Ayahuasca</title>
+    <title>Raízes Ancestral - Cerimônia Huni Kuîn</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
         :root {
-            --primary: #2e7d32;
-            --secondary: #7cb342;
-            --accent: #ffeb3b;
-            --dark: #1b5e20;
-            --light: #f1f8e9;
-            --text: #212121;
-            --text-light: #757575;
+            --primary: #0a0a0a;
+            --secondary: #1a1a1a;
+            --accent: #d4af37;
+            --dark: #000000;
+            --light: #f1f1f1;
+            --text: #e0e0e0;
+            --text-light: #aaaaaa;
+            --border: #333333;
         }
         
         * {
@@ -25,38 +26,33 @@
         }
         
         body {
-            background-color: #f5f5f5;
+            background-color: #121212;
             color: var(--text);
             line-height: 1.6;
         }
         
         header {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: white;
+            background: linear-gradient(to bottom, var(--dark), var(--primary));
+            color: var(--light);
             padding: 2rem 1rem;
             text-align: center;
             position: relative;
             overflow: hidden;
+            border-bottom: 1px solid var(--accent);
         }
         
-        header::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.1"><path d="M30,30 Q50,10 70,30 T90,30 T70,70 T30,70 T10,30 T30,30" fill="none" stroke="white" stroke-width="2"/></svg>');
-            background-repeat: repeat;
-            opacity: 0.1;
+        .header-content {
+            position: relative;
+            z-index: 2;
         }
         
         .logo-container {
             max-width: 120px;
             margin: 0 auto 1rem;
-            background-color: white;
+            background-color: rgba(0, 0, 0, 0.7);
             border-radius: 50%;
             padding: 10px;
+            border: 2px solid var(--accent);
         }
         
         .logo {
@@ -68,13 +64,14 @@
         h1 {
             font-size: 2.2rem;
             margin-bottom: 0.5rem;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            color: var(--accent);
         }
         
         .subtitle {
             font-size: 1.2rem;
             margin-bottom: 1rem;
             font-weight: 300;
+            color: var(--text-light);
         }
         
         .container {
@@ -84,26 +81,29 @@
         }
         
         .section {
-            background: white;
-            border-radius: 10px;
+            background: var(--secondary);
+            border-radius: 8px;
             padding: 2rem;
             margin-bottom: 2rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border);
         }
         
         .section-title {
-            color: var(--primary);
+            color: var(--accent);
             margin-bottom: 1.5rem;
             padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--secondary);
+            border-bottom: 1px solid var(--accent);
             font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .about-ritual {
             display: flex;
             flex-wrap: wrap;
             gap: 2rem;
-            align-items: center;
+            align-items: flex-start;
         }
         
         .ritual-info {
@@ -116,18 +116,48 @@
             min-width: 300px;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border);
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         
         .ritual-image img {
             width: 100%;
             height: auto;
             display: block;
+            max-height: 500px;
+            object-fit: cover;
+        }
+        
+        .info-image {
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border);
+            margin: 2rem 0;
+        }
+        
+        .info-image img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
         
         .highlight {
-            color: var(--primary);
+            color: var(--accent);
             font-weight: bold;
+        }
+        
+        .rules-list {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .rules-list li {
+            margin-bottom: 0.5rem;
         }
         
         .form-group {
@@ -138,6 +168,7 @@
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 500;
+            color: var(--text-light);
         }
         
         input[type="text"],
@@ -148,23 +179,25 @@
         select {
             width: 100%;
             padding: 12px;
-            border: 1px solid #ddd;
+            background-color: var(--primary);
+            border: 1px solid var(--border);
             border-radius: 5px;
             font-size: 1rem;
-            transition: border 0.3s;
+            transition: all 0.3s;
+            color: var(--text);
         }
         
         input:focus,
         textarea:focus,
         select:focus {
-            border-color: var(--secondary);
+            border-color: var(--accent);
             outline: none;
-            box-shadow: 0 0 0 2px rgba(124, 179, 66, 0.2);
+            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
         }
         
         .required::after {
             content: " *";
-            color: #e53935;
+            color: #d32f2f;
         }
         
         .checkbox-group, .radio-group {
@@ -185,38 +218,33 @@
         }
         
         .btn {
-            background-color: var(--primary);
-            color: white;
+            background-color: var(--accent);
+            color: var(--dark);
             border: none;
             padding: 12px 24px;
             border-radius: 5px;
             cursor: pointer;
             font-size: 1rem;
-            font-weight: 500;
-            transition: background-color 0.3s;
+            font-weight: 600;
+            transition: all 0.3s;
             display: inline-flex;
             align-items: center;
             justify-content: center;
         }
         
         .btn:hover {
-            background-color: var(--dark);
-        }
-        
-        .btn-secondary {
-            background-color: #757575;
-        }
-        
-        .btn-secondary:hover {
-            background-color: #616161;
+            background-color: #c19b2e;
+            transform: translateY(-2px);
         }
         
         .btn-whatsapp {
             background-color: #25D366;
+            color: white;
         }
         
         .btn-whatsapp:hover {
             background-color: #128C7E;
+            transform: translateY(-2px);
         }
         
         .btn-icon {
@@ -231,10 +259,10 @@
         }
         
         .terms {
-            background-color: #f9f9f9;
+            background-color: var(--primary);
             padding: 1.5rem;
             border-radius: 5px;
-            border-left: 4px solid var(--primary);
+            border-left: 4px solid var(--accent);
             margin: 1.5rem 0;
             max-height: 300px;
             overflow-y: auto;
@@ -243,15 +271,16 @@
         .terms-title {
             font-weight: bold;
             margin-bottom: 1rem;
-            color: var(--primary);
+            color: var(--accent);
         }
         
         footer {
             background-color: var(--dark);
-            color: white;
+            color: var(--text-light);
             text-align: center;
             padding: 2rem 1rem;
             margin-top: 3rem;
+            border-top: 1px solid var(--border);
         }
         
         .contact-info {
@@ -272,13 +301,13 @@
         }
         
         .alert-success {
-            background-color: #dff2df;
+            background-color: rgba(76, 175, 80, 0.2);
             color: #4caf50;
             border: 1px solid #4caf50;
         }
         
         .alert-error {
-            background-color: #ffebee;
+            background-color: rgba(244, 67, 54, 0.2);
             color: #f44336;
             border: 1px solid #f44336;
         }
@@ -287,6 +316,14 @@
             position: absolute;
             left: -9999px;
             top: -9999px;
+        }
+        
+        .callout {
+            background-color: rgba(212, 175, 55, 0.1);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
         }
         
         @media (max-width: 768px) {
@@ -305,31 +342,71 @@
             .btn {
                 width: 100%;
             }
+            
+            .about-ritual {
+                flex-direction: column;
+            }
+            
+            .ritual-image img {
+                max-height: 400px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo-container">
-            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='100' height='100'><circle cx='50' cy='50' r='45' fill='%232e7d32'/><path d='M30,30 Q50,10 70,30 T90,30 T70,70 T30,70 T10,30 T30,30' fill='none' stroke='white' stroke-width='5'/><circle cx='50' cy='50' r='10' fill='%237cb342'/></svg>" alt="Logo Raízes Ancestral" class="logo">
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='100' height='100'><circle cx='50' cy='50' r='45' fill='%230a0a0a' stroke='%23d4af37' stroke-width='2'/><path d='M30,30 Q50,10 70,30 T90,30 T70,70 T30,70 T10,30 T30,30' fill='none' stroke='%23d4af37' stroke-width='3'/><circle cx='50' cy='50' r='10' fill='%23d4af37'/></svg>" alt="Logo Raízes Ancestral" class="logo">
+            </div>
+            <h1>Raízes Ancestral Cerimônia Huni Kuîn</h1>
+            <p class="subtitle">Ritual com Medicinas da Floresta</p>
         </div>
-        <h1>Raízes Ancestral Povo Huni Kuin</h1>
-        <p class="subtitle">Ritual de Ayahuasca - Expansão de Consciência</p>
     </header>
     
     <div class="container">
         <div class="section about-ritual">
             <div class="ritual-info">
                 <h2 class="section-title">Sobre o Ritual</h2>
-                <p>O <span class="highlight">Cacique Txuã</span>, acompanhado de seu sobrinho <span class="highlight">Inuninawa</span>, originários do Povo Huni Kuin do Acre, trazem suas medicinas ancestrais totalmente transformadoras, juntamente com seus rezos, músicas, forças, alegria e muita cura e autoconhecimento.</p>
-                <p>Venha participar da cerimônia e se conectar com o seu Eu. Em meio à Mata Atlântica, localizado na Serra do Guaraú em Peruíbe com vista para o mar, no espaço <span class="highlight">Solar das 7 Montanhas</span>, um lugar espetacular de cura e energia boa!</p>
-                <p><span class="highlight">Medicinas inclusas:</span> Rapé, Ayahuasca, Defumação, Sananga</p>
-                <p><span class="highlight">Medicinas opcionais:</span> Kambô (R$ 150,00), Hanapaya (R$ 150,00)</p>
-                <p><span class="highlight">Valor da cerimônia:</span> R$ 180,00</p>
+                <p>O <span class="highlight">Cacique Txuã</span>, acompanhado de seu sobrinho <span class="highlight">Inu Nenawá</span>, originários do Povo Huni Kuin do Acre, está de volta trazendo suas medicinas ancestrais totalmente transformadoras, juntamente com seus rezos, músicas, força, alegria e muita cura e autoconhecimento.</p>
+                
+                <div class="callout">
+                    <p>Você anda sentindo o Chamado?</p>
+                    <p>Então venha participar da cerimônia e se conectar com o seu Eu</p>
+                </div>
+                
+                <p>Imersos na Mata Atlântica... Teremos Sopa de Legumes e Café da Manhã, aceitando a colaboração para trazer frutas, suco, alimentação leve.</p>
+                
+                <h3 class="section-title">Trazer</h3>
+                <ul class="rules-list">
+                    <li>Agasalhos/Coberta/Esteira/Cadeira de praia</li>
+                    <li>Repelente</li>
+                    <li>Papel higiênico</li>
+                    <li>Pertences pessoais</li>
+                    <li>O que sentir confortável</li>
+                </ul>
+                
+                <p>📍 Localizado na Serra (Estrada) do Guaraú, Bairro Jardim Guaraú Peruíbe-SP, com vista para o mar...</p>
+                <p>⛰ Solar das 7 Montanhas, um lugar espetacular de cura e energia!</p>
             </div>
             <div class="ritual-image">
-                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200' width='300' height='200'><rect width='300' height='200' fill='%237cb342' opacity='0.2'/><path d='M150,50 L180,80 L170,120 L130,120 L120,80 Z' fill='%232e7d32'/><circle cx='150' cy='40' r='20' fill='%23ffeb3b'/><path d='M50,150 C100,100 200,100 250,150' stroke='%232e7d32' stroke-width='5' fill='none'/></svg>" alt="Ilustração do ritual">
+                <img src="a1.jpg" alt="Cacique Txuã e Inu Nenawá - Povo Huni Kuin">
             </div>
+        </div>
+        
+        <div class="info-image">
+            <img src="a2.jpg" alt="Informações sobre a cerimônia e medicinas">
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Regras para o Ritual</h2>
+            <p>Fixar três dias antes da cerimônia sem:</p>
+            <ul class="rules-list">
+                <li>DROGAS</li>
+                <li>SEXO</li>
+                <li>ALIMENTAÇÃO GORDUROSA, CARNES E ETC...</li>
+            </ul>
+            <p>✨ Fiquem à vontade para trazer instrumentos musicais e soltar a Voz. 🍃</p>
         </div>
         
         <div class="section">
@@ -533,7 +610,7 @@
                     <p>Estamos cientes da importância de respeitar as instruções e orientações que receber do comando ou cuidadoria.</p>
                     <p>Estamos cientes que não devo me ausentar do salão durante o ritual - (apenas nos casos de emergência como limpeza / banheiros).</p>
                     <p>Estamos cientes que devo trazer alimento/suco para compartilhar no final.</p>
-                    <p>Estamos cientes de que todas as medidas acima são para minha segurança e conforto.</p>
+                    <p>Estamos cientes de que todas as medidas acima são para minha segurança и conforto.</p>
                 </div>
                 
                 <div class="form-group">
@@ -560,26 +637,23 @@
                     <button type="button" id="sendWhatsApp" class="btn btn-whatsapp">
                         <span class="btn-icon">💬</span> Enviar por WhatsApp
                     </button>
-                    <button type="button" id="downloadPdf" class="btn btn-secondary">
-                        <span class="btn-icon">📄</span> Baixar PDF
-                    </button>
                 </div>
             </form>
         </div>
     </div>
     
     <footer>
-        <p>RAÍZES ANCESTRAL POVO HUNI KUIN</p>
+        <p>RAÍZES ANCESTRAL CERIMÔNIA HUNI KUÎN</p>
         <p>Contato: <a href="https://wa.me/5513996983418" class="whatsapp-link">MANU - 13 99698-3418</a></p>
         <p class="contact-info">Local: Solar das 7 Montanhas - Serra do Guaraú, Peruíbe - SP</p>
     </footer>
 
     <div id="pdfContainer" style="display: none;">
-        <div id="pdfContent" style="padding: 20px; font-family: Arial, sans-serif;">
-            <h1 style="text-align: center; color: #2e7d32;">FICHA DE ANAMNESE</h1>
-            <h2 style="text-align: center;">Raízes Ancestral Povo Huni Kuin</h2>
-            <p style="text-align: center;">Ritual de Ayahuasca - Expansão de Consciência</p>
-            <hr>
+        <div id="pdfContent" style="padding: 20px; font-family: Arial, sans-serif; background-color: #121212; color: #e0e0e0;">
+            <h1 style="text-align: center; color: #d4af37;">FICHA DE ANAMNESE</h1>
+            <h2 style="text-align: center;">Raízes Ancestral Cerimônia Huni Kuîn</h2>
+            <p style="text-align: center;">Ritual com Medicinas da Floresta</p>
+            <hr style="border-color: #333;">
             <div id="pdfData"></div>
         </div>
     </div>
@@ -651,90 +725,6 @@
             return data;
         }
         
-        // Função para formatar dados para o PDF
-        function formatDataForPDF(data) {
-            let html = `
-                <h3>Dados Pessoais</h3>
-                <p><strong>Nome:</strong> ${data.nome || 'Não informado'}</p>
-                <p><strong>Data de Nascimento:</strong> ${data.dataNascimento || 'Não informado'}</p>
-                <p><strong>E-mail:</strong> ${data.email || 'Não informado'}</p>
-                <p><strong>Telefone:</strong> ${data.telefone || 'Não informado'}</p>
-                <p><strong>RG:</strong> ${data.rg || 'Não informado'}</p>
-                <p><strong>CPF:</strong> ${data.cpf || 'Não informado'}</p>
-                <p><strong>CEP:</strong> ${data.cep || 'Não informado'}</p>
-                <p><strong>Endereço:</strong> ${data.endereco || 'Não informado'}</p>
-                <p><strong>Cidade:</strong> ${data.cidade || 'Não informado'}</p>
-                <p><strong>Profissão:</strong> ${data.profissao || 'Não informado'}</p>
-                
-                <h3>Saúde e Histórico Médico</h3>
-                <p><strong>Pressão arterial:</strong> ${data.pressao || 'Não informado'}</p>
-                <p><strong>Problemas cardíacos:</strong> ${data.cardiacos || 'Não'}</p>
-                <p><strong>Medicamentos alopáticos:</strong> ${data.medicamentos || 'Nenhum'}</p>
-                <p><strong>Medicamentos com Fluoxetina (últimos 15 dias):</strong> ${data.fluoxetina || 'Nenhum'}</p>
-                <p><strong>Doenças graves/tratamentos:</strong> ${data.doencas || 'Nenhum'}</p>
-                <p><strong>Histórico familiar:</strong> ${data.historicoFamiliar || 'Nenhum'}</p>
-                <p><strong>Último ECG:</strong> ${data.ultimoEcG || 'Não informado'}</p>
-                <p><strong>Consumo de álcool:</strong> ${data.alcool || 'Não'}</p>
-                <p><strong>Consumo de drogas ilícitas:</strong> ${data.drogas || 'Não'}</p>
-                <p><strong>Vê vultos, ouve vozes:</strong> ${data.vultos || 'Não'}</p>
-                <p><strong>Gravidez:</strong> ${data.gravidez || 'Não se aplica ou não informado'}</p>
-                
-                <h3>Estado Emocional e Espiritual</h3>
-                <p><strong>Estado atual:</strong> ${data.estado || 'Não informado'}</p>
-                <p><strong>Pratica meditação/espiritualidade:</strong> ${data.meditacao || 'Não'}</p>
-                <p><strong>Tem mediunidade:</strong> ${data.mediunidade || 'Não'}</p>
-                <p><strong>Já consagrou ayahuasca:</strong> ${data.experiencia_ayahuasca || 'Não'}</p>
-                <p><strong>Experiências espirituais:</strong> ${data.experiencia_espiritual || 'Nenhuma'}</p>
-                <p><strong>Objetivo no ritual:</strong> ${data.busca || 'Não informado'}</p>
-                
-                <h3>Termos e Condições</h3>
-                <p><strong>Leu as regras do sítio:</strong> ${data.leu_regras || 'Não'}</p>
-                <p><strong>Aceita o termo de responsabilidade:</strong> ${data.termo || 'Não'}</p>
-                <p><strong>Deseja participar do grupo de WhatsApp:</strong> ${data.whatsapp || 'Não'}</p>
-                <p><strong>Data do preenchimento:</strong> ${data.dataPreenchimento || 'Não informado'}</p>
-            `;
-            
-            return html;
-        }
-        
-        // Gerar PDF da ficha
-        function generatePDF() {
-            if (!validateForm()) return;
-            
-            const data = getFormData();
-            const pdfDataElement = document.getElementById('pdfData');
-            pdfDataElement.innerHTML = formatDataForPDF(data);
-            
-            const pdfContentElement = document.getElementById('pdfContent');
-            
-            html2canvas(pdfContentElement, {
-                scale: 2,
-                useCORS: true,
-                logging: false
-            }).then(canvas => {
-                const imgData = canvas.toDataURL('image/png');
-                const pdf = new jsPDF('p', 'mm', 'a4');
-                const imgWidth = 210; // A4 width in mm
-                const pageHeight = 295; // A4 height in mm
-                const imgHeight = canvas.height * imgWidth / canvas.width;
-                let heightLeft = imgHeight;
-                let position = 0;
-                
-                pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-                heightLeft -= pageHeight;
-                
-                while (heightLeft >= 0) {
-                    position = heightLeft - imgHeight;
-                    pdf.addPage();
-                    pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-                    heightLeft -= pageHeight;
-                }
-                
-                pdf.save(`ficha-anamnese-${data.nome}.pdf`);
-                showAlert('PDF baixado com sucesso!', 'success');
-            });
-        }
-        
         // Enviar por WhatsApp
         function sendViaWhatsApp() {
             if (!validateForm()) return;
@@ -788,7 +778,6 @@
         }
         
         // Event listeners
-        document.getElementById('downloadPdf').addEventListener('click', generatePDF);
         document.getElementById('sendWhatsApp').addEventListener('click', sendViaWhatsApp);
     </script>
 </body>
