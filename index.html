@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raízes Ancestral - Cerimônia Huni Kuîn</title>
+    <title>No Bailado da Floresta - Cerimônia Huni Kuîn</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary: #0a0a0a;
@@ -29,6 +30,81 @@
             background-color: #121212;
             color: var(--text);
             line-height: 1.6;
+            padding-top: 70px; /* Espaço para o menu fixo */
+        }
+        
+        /* Menu de Navegação */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to bottom, var(--dark), var(--primary));
+            color: var(--light);
+            padding: 1rem;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            border-bottom: 1px solid var(--accent);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-menu-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            margin-right: 15px;
+        }
+        
+        .menu-toggle span {
+            width: 100%;
+            height: 3px;
+            background-color: var(--accent);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+        
+        .nav-logo {
+            height: 40px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-item {
+            margin: 0 0.5rem;
+        }
+        
+        .nav-link {
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(212, 175, 55, 0.2);
+            color: var(--accent);
         }
         
         header {
@@ -39,6 +115,7 @@
             position: relative;
             overflow: hidden;
             border-bottom: 1px solid var(--accent);
+            margin-top: 70px; /* Compensa a navbar fixa */
         }
         
         .header-content {
@@ -87,6 +164,7 @@
             margin-bottom: 2rem;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
             border: 1px solid var(--border);
+            scroll-margin-top: 100px; /* Para compensar o menu fixo ao rolar */
         }
         
         .section-title {
@@ -247,6 +325,16 @@
             transform: translateY(-2px);
         }
         
+        .btn-pix {
+            background-color: #32BCAD;
+            color: white;
+        }
+        
+        .btn-pix:hover {
+            background-color: #279e91;
+            transform: translateY(-2px);
+        }
+        
         .btn-icon {
             margin-right: 8px;
         }
@@ -326,7 +414,96 @@
             border-radius: 4px;
         }
         
+        .payment-info {
+            background-color: rgba(50, 188, 173, 0.1);
+            border-left: 4px solid #32BCAD;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+        
+        .pix-code {
+            font-family: monospace;
+            background-color: var(--primary);
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+            word-break: break-all;
+            text-align: center;
+            font-size: 1.1rem;
+            border: 1px dashed #32BCAD;
+        }
+        
+        .next-event {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .event-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .event-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border);
+        }
+        
+        .event-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .warning-box {
+            background-color: rgba(244, 67, 54, 0.1);
+            border-left: 4px solid #f44336;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+        
         @media (max-width: 768px) {
+            body {
+                padding-top: 60px;
+            }
+            
+            .navbar {
+                padding: 0.8rem;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: var(--primary);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+                padding: 1rem 0;
+                z-index: 999;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-item {
+                margin: 0.8rem 0;
+            }
+            
             .container {
                 padding: 1rem;
             }
@@ -343,11 +520,11 @@
                 width: 100%;
             }
             
-            .about-ritual {
+            .about-ritual, .next-event {
                 flex-direction: column;
             }
             
-            .ritual-image img {
+            .ritual-image img, .event-image img {
                 max-height: 400px;
             }
             
@@ -358,22 +535,52 @@
             h1 {
                 font-size: 1.8rem;
             }
+            
+            header {
+                margin-top: 60px;
+            }
+            
+            .section {
+                scroll-margin-top: 80px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Menu de Navegação -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-menu-container">
+                <button class="menu-toggle" id="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <img src="logo.png" alt="Logo No Bailado da Floresta" class="nav-logo">
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="#sobre" class="nav-link">Sobre</a></li>
+                <li class="nav-item"><a href="#regras" class="nav-link">Regras</a></li>
+                <li class="nav-item"><a href="#ficha" class="nav-link">Ficha</a></li>
+                <li class="nav-item"><a href="#pagamento" class="nav-link">Pagamento</a></li>
+                <li class="nav-item"><a href="#proximo" class="nav-link">Próximo Evento</a></li>
+                <li class="nav-item"><a href="#contato" class="nav-link">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+    
     <header>
         <div class="header-content">
             <div class="logo-container">
-                <img src="logo.png" alt="Logo Raízes Ancestral" class="logo">
+                <img src="logo.png" alt="Logo No Bailado da Floresta" class="logo">
             </div>
-            <h1>Raízes Ancestral Cerimônia Huni Kuîn</h1>
+            <h1>No Bailado da Floresta - Cerimônia Huni Kuîn</h1>
             <p class="subtitle">Ritual com Medicinas da Floresta</p>
         </div>
     </header>
     
     <div class="container">
-        <div class="section about-ritual">
+        <div class="section about-ritual" id="sobre">
             <div class="ritual-info">
                 <h2 class="section-title">Sobre o Ritual</h2>
                 <p>O <span class="highlight">Cacique Txuã</span>, acompanhado de seu sobrinho <span class="highlight">Inu Nenawá</span>, originários do Povo Huni Kuin do Acre, está de volta trazendo suas medicinas ancestrais totalmente transformadoras, juntamente com seus rezos, músicas, força, alegria e muita cura e autoconhecimento.</p>
@@ -394,11 +601,11 @@
                     <li>O que sentir confortável</li>
                 </ul>
                 
-                <p>📍 Localizado na Serra (Estrada) do Guaraú, Bairro Jardim Guaraú Peruíbe-SP, com vista para o mar...</p>
+                <p>📍 Localizado na Serra (Estrada) do Guaraú, Bairro Jardim Guaraú Peruíbe-SP, n°: 2000, com vista para o mar...</p>
                 <p>⛰ Solar das 7 Montanhas, um lugar espetacular de cura e energia!</p>
             </div>
             <div class="ritual-image">
-                <img src="a1.jpg" alt="Cacique Txuã e Inu Nenawá - Povo Huni Kuin">
+                <img src="a3.jpg" alt="Cacique Txuã e Inu Nenawá - Povo Huni Kuin">
             </div>
         </div>
         
@@ -406,7 +613,7 @@
             <img src="a2.jpg" alt="Informações sobre a cerimônia e medicinas">
         </div>
         
-        <div class="section">
+        <div class="section" id="regras">
             <h2 class="section-title">Regras para o Ritual</h2>
             <p>Fixar três dias antes da cerimônia sem:</p>
             <ul class="rules-list">
@@ -414,10 +621,15 @@
                 <li>SEXO</li>
                 <li>ALIMENTAÇÃO GORDUROSA, CARNES E ETC...</li>
             </ul>
+            
+            <div class="warning-box">
+                <p><strong>IMPORTANTE:</strong> Pessoas com laudo de esquizofrenia e ETRC não podem participar da cerimônia.</p>
+            </div>
+            
             <p>✨ Fiquem à vontade para trazer instrumentos musicais e soltar a Voz. 🍃</p>
         </div>
         
-        <div class="section">
+        <div class="section" id="ficha">
             <h2 class="section-title">FICHA DE ANAMNESE</h2>
             <p>Preencher com atenção e verdade as informações solicitadas</p>
             
@@ -613,7 +825,7 @@
                     <p>Eu, através das minhas informações prescritas acima, e enviada on line estou por livre e espontânea vontade, participando deste ritual onde se utiliza o chá Ayahuasca (Santo Daime), Rapé, Sananga e Tabaco.</p>
                     <p>Estamos cientes da importância de ter realizado o preparo prévio que me foi solicitado nos três dias que antecede o trabalho de: não ingerir bebida alcoólica - não comer carne vermelha, alimentos gordurosos de difícil digestão e não utilizar qualquer tipo de droga ilícita.</p>
                     <p>Estamos cientes da importância de ter passado pela entrevista. Estamos cientes que o chá Ayahuasca (Santo Daime) é um amplificador de consciência.</p>
-                    <p>Estamos cientes de que é proibido fumar (tabaco ou qualquer outro tipo de cigarro) nas dependências do sítio ou no templo durante minha permanência.</p>
+                    <p>Estamos cientes de que é proibido fumar (tabaco ou qualquer otro tipo de cigarro) nas dependências do sítio ou no templo durante minha permanência.</p>
                     <p>Temos consciência de que devo aguardar pelo menos 40 minutos após o término do trabalho para ir embora ou assim que estiver em condições.</p>
                     <p>Estamos cientes da importância de respeitar as instruções e orientações que receber do comando ou cuidadoria.</p>
                     <p>Estamos cientes que não devo me ausentar do salão durante o ritual - (apenas nos casos de emergência como limpeza / banheiros).</p>
@@ -648,18 +860,86 @@
                 </div>
             </form>
         </div>
+        
+        <div class="section" id="pagamento">
+            <h2 class="section-title">Pagamento</h2>
+            
+            <div class="payment-info">
+                <p>O pagamento deve ser feito via PIX após o envio do formulário de anamnese.</p>
+                
+                <h3>Valores:</h3>
+                <ul class="rules-list">
+                    <li><strong>Cerimônia:</strong> R$ 180,00</li>
+                    <li><strong>Kambô (veneno do sapo - opcional):</strong> R$ 150,00</li>
+                    <li><strong>Hanapaya (batismo da pimenta - opcional):</strong> R$ 150,00</li>
+                </ul>
+                
+                <p><strong>Medicinas inclusas no valor da cerimônia:</strong> Rapé, Ayahuasca, Defumação, Sananga</p>
+                
+                <h3>Chave PIX:</h3>
+                <div class="pix-code">694 029 652 20</div>
+                <p><strong>Titular:</strong> Francisco Edson Pereira Marroque</p>
+                <p><strong>Banco:</strong> Banco do Brasil</p>
+                
+                <div class="buttons">
+                    <button type="button" id="copyPix" class="btn btn-pix">
+                        <span class="btn-icon"><i class="fas fa-copy"></i></span> Copiar Chave PIX
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section" id="proximo">
+            <h2 class="section-title">Próximo Evento</h2>
+            
+            <div class="next-event">
+                <div class="event-info">
+                    <h3>POVO HUNI KUIN, ELE VOLTOU 😍💪🏻</h3>
+                    <h4>2° Cerimônia</h4>
+                    
+                    <p><strong>CACIQUE TXUÃ</strong> acompanhado do seu sobrinho <strong>INU NENAWA</strong> originários Povo Huni Kuin do Acre, trazendo suas medicinas ancestrais totalmente transformadoras... junto seus rezos, suas músicas, suas forças, alegria e muita Cura e autoconhecimento!</p>
+                    
+                    <p>A GIBÓIA NÃO PARA, SÓ ALEGRIA E HAUX HAUX</p>
+                    
+                    <p>Venha participar da Cerimônia e se conectar com o seu Eu, estamos em momento de Guerra e as Medicinas dadas pelo criador pela Mãe Gaia/Pachamama/Natureza... Vem nos mostrar a verdade a dor a cura e a liberdade.</p>
+                    
+                    <p>Expansão de Consciência 👁</p>
+                    
+                    <p>E em Meio a Mata Atlântica, Localizado no Camping Naia, entrada de Peruíbe Litoral Sul de São Paulo.</p>
+                    
+                    <p><strong>VALOR DA CERIMÔNIA: R$ 180,00</strong></p>
+                    
+                    <p><strong>Medicinas Inclusas:</strong> Rapé, Ayahuasca, Defumação, Sananga</p>
+                    
+                    <p><strong>Medicinas opcionais:</strong></p>
+                    <ul class="rules-list">
+                        <li>Kambô (veneno do sapo): R$ 150,00</li>
+                        <li>Hanapaya (batismo da pimenta): R$ 150,00</li>
+                    </ul>
+                    
+                    <p>Terá Sopa antes de começar o ritual.</p>
+                    <p>Tragam frutas, sucos, alimentos naturais, para todos partilharem e termos um belo café da manhã com muita energia boa.</p>
+                    
+                    <p><strong>Mais informações e valores por WhatsApp:</strong> MANU - <a href="https://wa.me/5513996983418" class="whatsapp-link">13 99698-3418</a></p>
+                </div>
+                
+                <div class="event-image">
+                    <img src="a4.jpg" alt="Próximo evento - 2ª Cerimônia">
+                </div>
+            </div>
+        </div>
     </div>
     
-    <footer>
-        <p>RAÍZES ANCESTRAL CERIMÔNIA HUNI KUÎN</p>
+    <footer id="contato">
+        <p>NO BAILADO DA FLORESTA - CERIMÔNIA HUNI KUÎN</p>
         <p>Contato: <a href="https://wa.me/5513996983418" class="whatsapp-link">MANU - 13 99698-3418</a></p>
-        <p class="contact-info">Local: Solar das 7 Montanhas - Serra do Guaraú, Peruíbe - SP</p>
+        <p class="contact-info">Local: Solar das 7 Montanhas - Serra do Guaraú, n°: 2000, Peruíbe - SP</p>
     </footer>
 
     <div id="pdfContainer" style="display: none;">
         <div id="pdfContent" style="padding: 20px; font-family: Arial, sans-serif; background-color: #121212; color: #e0e0e0;">
             <h1 style="text-align: center; color: #d4af37;">FICHA DE ANAMNESE</h1>
-            <h2 style="text-align: center;">Raízes Ancestral Cerimônia Huni Kuîn</h2>
+            <h2 style="text-align: center;">No Bailado da Floresta - Cerimônia Huni Kuîn</h2>
             <p style="text-align: center;">Ritual com Medicinas da Floresta</p>
             <hr style="border-color: #333;">
             <div id="pdfData"></div>
@@ -669,6 +949,41 @@
     <script>
         // Inicializar jsPDF
         const { jsPDF } = window.jspdf;
+        
+        // Menu Hamburger
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('nav-menu');
+        
+        mobileMenu.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                navMenu.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+        
+        // Smooth scroll para as seções
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80, // Compensa a altura do menu fixo
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
         
         // Definir a data atual no campo de data de preenchimento
         document.addEventListener('DOMContentLoaded', function() {
@@ -733,6 +1048,16 @@
             return data;
         }
         
+        // Copiar chave PIX
+        document.getElementById('copyPix').addEventListener('click', function() {
+            const pixCode = '69402965220';
+            navigator.clipboard.writeText(pixCode).then(() => {
+                showAlert('Chave PIX copiada com sucesso!', 'success');
+            }).catch(err => {
+                showAlert('Falha ao copiar a chave PIX.', 'error');
+            });
+        });
+        
         // Enviar por WhatsApp
         function sendViaWhatsApp() {
             if (!validateForm()) return;
@@ -741,7 +1066,7 @@
             const phoneNumber = "5513996983418";
             
             // Formatar a mensagem para o WhatsApp
-            let message = `*FICHA DE ANAMNESE - Raízes Ancestral*\n\n`;
+            let message = `*FICHA DE ANAMNESE - No Bailado da Floresta*\n\n`;
             message += `*Nome:* ${data.nome || 'Não informado'}\n`;
             message += `*Data de Nascimento:* ${data.dataNascimento || 'Não informado'}\n`;
             message += `*E-mail:* ${data.email || 'Não informado'}\n`;
@@ -775,8 +1100,15 @@
             message += `*Leu as regras:* ${data.leu_regras || 'Não'}\n`;
             message += `*Aceita termo:* ${data.termo || 'Não'}\n`;
             message += `*Grupo WhatsApp:* ${data.whatsapp || 'Não'}\n`;
-            message += `*Data preenchimento:* ${data.dataPreenchimento || 'Não informado'}`;
+            message += `*Data preenchimento:* ${data.dataPreenchimento || 'Não informado'}\n\n`;
             
+            message += `*INSTRUÇÕES PARA PAGAMENTO:*\n`;
+            message += `Valor: R$ 180,00\n`;
+            message += `Chave PIX: 69402965220\n`;
+            message += `Titular: Francisco Edson Pereira Marroque\n`;
+            message += `Banco: Banco do Brasil\n\n`;
+            message += `*Envie o comprovante para este mesmo número após o pagamento.*`;
+
             // Codificar a mensagem para URL
             const encodedMessage = encodeURIComponent(message);
             
