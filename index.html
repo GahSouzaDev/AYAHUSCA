@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>No Bailado da Floresta - Cerimônia Huni Kuîn</title>
+    <title>No Bailado da Floresta - Última Cerimônia Huni Kuîn do Ano</title>
     
     <!-- Favicon usando a mesma logo.png -->
     <link rel="icon" type="image/png" href="logo.png">
     
     <!-- Meta Tags para SEO -->
-    <meta name="description" content="Participe da cerimônia Huni Kuîn 'No Bailado da Floresta' com medicinas ancestrais, cura e autoconhecimento. Ritual com Ayahuasca, Rapé, Sananga e mais.">
+    <meta name="description" content="Participe da última cerimônia Huni Kuîn do ano 'No Bailado da Floresta' com medicinas ancestrais, cura e autoconhecimento. Ritual com Ayahuasca, Rapé, Sananga e mais.">
     <meta name="keywords" content="cerimônia huni kuin, ayahuasca, rapé, sananga, cura espiritual, autoconhecimento, medicina ancestral, Peruíbe">
     <meta name="author" content="No Bailado da Floresta">
     
@@ -210,15 +209,15 @@
             border: 1px solid var(--border);
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
         }
         
         .ritual-image img {
             width: 100%;
             height: auto;
             display: block;
-            max-height: 500px;
-            object-fit: cover;
+            /* Removido max-height para permitir que a imagem seja exibida por completo */
+            object-fit: contain; /* Alterado de 'cover' para 'contain' para mostrar a imagem inteira */
         }
         
         .info-image {
@@ -536,8 +535,10 @@
                 flex-direction: column;
             }
             
-            .ritual-image img, .event-image img {
-                max-height: 400px;
+            /* Ajuste específico para a imagem a5 em dispositivos móveis */
+            .ritual-image img {
+                max-height: none; /* Remove qualquer limite de altura */
+                object-fit: contain; /* Garante que a imagem inteira seja visível */
             }
             
             .logo-container {
@@ -586,9 +587,9 @@
             <div class="logo-container">
                 <img src="logo.png" alt="Logo No Bailado da Floresta" class="logo">
             </div>
-            <h1>No Bailado da Floresta - Ultima Cerimônia Huni Kuîn</h1>
-            <h2>Ultima Cerimônia de 2025</h2>
-            <p class="subtitle">Ritual com Medicinas da Floresta - 26 e 27 de Setembro as 18 hs</p>
+            <h1>No Bailado da Floresta - Última Cerimônia Huni Kuîn do Ano</h1>
+            <h2>Última Cerimônia de 2025</h2>
+            <p class="subtitle">Ritual com Medicinas da Floresta - 15 de Novembro às 18h</p>
         </div>
     </header>
     
@@ -600,7 +601,7 @@
                 
                 <div class="callout">
                     <p>Você anda sentindo o Chamado?</p>
-                    <p>Então venha participar da cerimônia e se conectar com o seu Eu</p>
+                    <p>Então venha participar da última cerimônia do ano e se conectar com o seu Eu</p>
                 </div>
                 
                 <p>Imersos na Mata Atlântica... Teremos Sopa de Legumes e Café da Manhã, aceitando a colaboração para trazer frutas, suco, alimentação leve.</p>
@@ -615,12 +616,11 @@
                 </ul>
                 
                 <p>📍 Local Espaço Fibras da Teia 
-                    Bairro estação,  perto da rodoviária de Peruíbe-SP</p>
-                <p>⛰ Local Espaço Fibras da Teia 
-                    Bairro estação,  perto da rodoviária de Peruíbe-SP</p>
+                    Bairro estação, perto da rodoviária de Peruíbe-SP</p>
+                <p>⛰ Mesmo local da cerimônia anterior</p>
             </div>
             <div class="ritual-image">
-                <img src="a5.jpg" alt="Cacique Txuã e Inu Nenawá - Povo Huni Kuin">
+                <img src="a6.jpg" alt="Cacique Txuã e Inu Nenawá - Povo Huni Kuin">
             </div>
         </div>
         
@@ -630,11 +630,13 @@
         
         <div class="section" id="regras">
             <h2 class="section-title">Regras para o Ritual</h2>
-            <p>Fixar três dias antes da cerimônia sem:</p>
+            <p>Ficar três ou maisdias antes da cerimônia sem:</p>
             <ul class="rules-list">
+                <li>CARNES</li>
+                <li>COMIDAS GORDUROSAS</li>
+                <li>REMEDIOS FORTES</li>
                 <li>DROGAS</li>
-                <li>SEXO</li>
-                <li>ALIMENTAÇÃO GORDUROSA, CARNES E ETC...</li>
+                <li>SEXO</li>                    
             </ul>
             
             <div class="warning-box">
@@ -733,7 +735,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="doencas">Já teve alguma doença grave? Atualmente está fazando algum tipo de tratamento?</label>
+                    <label for="doencas">Já teve alguma doença grave? Atualmente está fazendo algum tipo de tratamento?</label>
                     <textarea id="doencas" name="doencas" rows="3"></textarea>
                 </div>
                 
@@ -840,7 +842,7 @@
                     <p>Eu, através das minhas informações prescritas acima, e enviada on line estou por livre e espontânea vontade, participando deste ritual onde se utiliza o chá Ayahuasca (Santo Daime), Rapé, Sananga e Tabaco.</p>
                     <p>Estamos cientes da importância de ter realizado o preparo prévio que me foi solicitado nos três dias que antecede o trabalho de: não ingerir bebida alcoólica - não comer carne vermelha, alimentos gordurosos de difícil digestão e não utilizar qualquer tipo de droga ilícita.</p>
                     <p>Estamos cientes da importância de ter passado pela entrevista. Estamos cientes que o chá Ayahuasca (Santo Daime) é um amplificador de consciência.</p>
-                    <p>Estamos cientes de que é proibido fumar (tabaco ou qualquer otro tipo de cigarro) nas dependências do sítio ou no templo durante minha permanência.</p>
+                    <p>Estamos cientes de que é proibido fumar (tabaco ou qualquer outro tipo de cigarro) nas dependências do sítio ou no templo durante minha permanência.</p>
                     <p>Temos consciência de que devo aguardar pelo menos 40 minutos após o término do trabalho para ir embora ou assim que estiver em condições.</p>
                     <p>Estamos cientes da importância de respeitar as instruções e orientações que receber do comando ou cuidadoria.</p>
                     <p>Estamos cientes que não devo me ausentar do salão durante o ritual - (apenas nos casos de emergência como limpeza / banheiros).</p>
@@ -849,7 +851,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <label class="required">Declaro that li e estou ciente do termo de responsabilidade acima</label>
+                    <label class="required">Declaro que li e estou ciente do termo de responsabilidade acima</label>
                     <div class="radio-group">
                         <label class="radio-label"><input type="radio" name="termo" value="Ciente" required> Ciente</label>
                     </div>
@@ -904,25 +906,25 @@
             </div>
         </div>
         
-        <!-- EVENTO ATUAL - SETEMBRO (AGORA É O EVENTO ATUAL) -->
+        <!-- EVENTO ATUAL - NOVEMBRO (AGORA É O EVENTO ATUAL) -->
         <div class="section" id="evento-atual">
-            <h2 class="section-title">Evento Atual</h2>
+            <h2 class="section-title">Evento Atual - Última Cerimônia do Ano</h2>
             
             <div class="next-event">
                 <div class="event-info">
                     <h3>POVO HUNI KUIN, ELE VOLTOU 😍💪🏻</h3>
-                    <h4>Ultima Cerimônia - 27 e 28 de Setembro as 18 hs</h4>
+                    <h4>Última Cerimônia do Ano - 15 de Novembro às 18h</h4>
                     
                     <p><strong>CACIQUE TXUÃ</strong> acompanhado do seu sobrinho <strong>INU NENAWA</strong> originários Povo Huni Kuin do Acre, trazendo suas medicinas ancestrais totalmente transformadoras... junto seus rezos, suas músicas, suas forças, alegria e muita Cura e autoconhecimento!</p>
                     
                     <p>A GIBÓIA NÃO PARA, SÓ ALEGRIA E HAUX HAUX</p>
                     
-                    <p>Venha participar da Cerimônia e se conectar com o seu Eu, estamos em momento de Guerra e as Medicinas dadas pelo criador pela Mãe Gaia/Pachamama/Natureza... Vem nos mostrar a verdade a dor a cura e a liberdade.</p>
+                    <p>Venha participar da Última Cerimônia do Ano e se conectar com o seu Eu, estamos em momento de Guerra e as Medicinas dadas pelo criador pela Mãe Gaia/Pachamama/Natureza... Vem nos mostrar a verdade a dor a cura e a liberdade.</p>
                     
                     <p>Expansão de Consciência 👁</p>
                     
                     <p>Local Espaço Fibras da Teia 
-                    Bairro estação,  perto da rodoviária de Peruíbe-SP</p>
+                    Bairro estação, perto da rodoviária de Peruíbe-SP</p>
                     
                     <p><strong>VALOR DA CERIMÔNIA: R$ 180,00</strong></p>
                     
@@ -941,24 +943,24 @@
                 </div>
                 
                 <div class="event-image">
-                    <img src="a4.jpg" alt="Evento Atual - 2ª Cerimônia">
+                    <img src="a4.jpg" alt="Evento Atual - Última Cerimônia do Ano">
                 </div>
             </div>
         </div>
     </div>
     
     <footer id="contato">
-        <p>NO BAILADO DA FLORESTA - CERIMÔNIA HUNI KUÎN</p>
+        <p>NO BAILADO DA FLORESTA - ÚLTIMA CERIMÔNIA HUNI KUÎN DO ANO</p>
         <p>Contato: <a href="https://wa.me/5513996983418" class="whatsapp-link">MANU - 13 99698-3418</a></p>
         <p class="contact-info">Local Espaço Fibras da Teia 
-                    Bairro estação,  perto da rodoviária de Peruíbe-SP</p>
+                    Bairro estação, perto da rodoviária de Peruíbe-SP</p>
     </footer>
 
     <div id="pdfContainer" style="display: none;">
         <div id="pdfContent" style="padding: 20px; font-family: Arial, sans-serif; background-color: #121212; color: #e0e0e0;">
             <h1 style="text-align: center; color: #d4af37;">FICHA DE ANAMNESE</h1>
-            <h2 style="text-align: center;">No Bailado da Floresta - Cerimônia Huni Kuîn</h2>
-            <p style="text-align: center;">Ritual com Medicinas da Floresta</p>
+            <h2 style="text-align: center;">No Bailado da Floresta - Última Cerimônia Huni Kuîn do Ano</h2>
+            <p style="text-align: center;">Ritual com Medicinas da Floresta - 15 de Novembro</p>
             <hr style="border-color: #333;">
             <div id="pdfData"></div>
         </div>
