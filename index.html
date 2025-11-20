@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>No Bailado da Floresta - Última Cerimônia Huni Kuîn do Ano</title>
+    <title>No Bailado da Floresta - Cerimônia Tradicional Huni Kuin</title>
     
     <!-- Favicon usando a mesma logo.png -->
     <link rel="icon" type="image/png" href="logo.png">
     
     <!-- Meta Tags para SEO -->
-    <meta name="description" content="Participe da última cerimônia Huni Kuîn do ano 'No Bailado da Floresta' com medicinas ancestrais, cura e autoconhecimento. Ritual com Ayahuasca, Rapé, Sananga e mais.">
-    <meta name="keywords" content="cerimônia huni kuin, ayahuasca, rapé, sananga, cura espiritual, autoconhecimento, medicina ancestral, Peruíbe">
+    <meta name="description" content="Cerimônia Tradicional Huni Kuin com Medicinas da Floresta. Ritual com Ayahuasca, Rapé, Sananga, Kambô e muito mais. 22 de Novembro em Peruíbe-SP.">
+    <meta name="keywords" content="cerimônia huni kuin, ayahuasca, rapé, sananga, kambô, cura espiritual, autoconhecimento, medicina ancestral, Peruíbe">
     <meta name="author" content="No Bailado da Floresta">
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -480,6 +480,31 @@
             border-radius: 4px;
         }
         
+        .schedule {
+            background-color: var(--primary);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .schedule-item {
+            display: flex;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .schedule-time {
+            font-weight: bold;
+            color: var(--accent);
+            min-width: 120px;
+        }
+        
+        .schedule-description {
+            flex: 1;
+        }
+        
         @media (max-width: 768px) {
             body {
                 padding-top: 60px;
@@ -556,6 +581,15 @@
             .section {
                 scroll-margin-top: 80px;
             }
+            
+            .schedule-item {
+                flex-direction: column;
+            }
+            
+            .schedule-time {
+                min-width: auto;
+                margin-bottom: 0.5rem;
+            }
         }
     </style>
 </head>
@@ -573,10 +607,10 @@
             </div>
             <ul class="nav-menu" id="nav-menu">
                 <li class="nav-item"><a href="#sobre" class="nav-link">Sobre</a></li>
+                <li class="nav-item"><a href="#programacao" class="nav-link">Programação</a></li>
                 <li class="nav-item"><a href="#regras" class="nav-link">Regras</a></li>
                 <li class="nav-item"><a href="#ficha" class="nav-link">Ficha</a></li>
                 <li class="nav-item"><a href="#pagamento" class="nav-link">Pagamento</a></li>
-                <li class="nav-item"><a href="#evento-atual" class="nav-link">Evento Atual</a></li>
                 <li class="nav-item"><a href="#contato" class="nav-link">Contato</a></li>
             </ul>
         </div>
@@ -587,9 +621,9 @@
             <div class="logo-container">
                 <img src="logo.png" alt="Logo No Bailado da Floresta" class="logo">
             </div>
-            <h1>No Bailado da Floresta - Última Cerimônia Huni Kuîn do Ano</h1>
-            <h2>Última Cerimônia de 2025</h2>
-            <p class="subtitle">Ritual com Medicinas da Floresta - 15 de Novembro às 18h</p>
+            <h1>Cerimônia Tradicional Huni Kuin</h1>
+            <h2>Medicinas da Floresta</h2>
+            <p class="subtitle">22 de Novembro (Sábado) - Espaço de Cura São Miguel - Peruíbe-SP</p>
         </div>
     </header>
     
@@ -597,30 +631,83 @@
         <div class="section about-ritual" id="sobre">
             <div class="ritual-info">
                 <h2 class="section-title">Sobre o Ritual</h2>
-                <p>O <span class="highlight">Cacique Txuã</span>, acompanhado de seu sobrinho <span class="highlight">Inu Nenawá</span>, originários do Povo Huni Kuin do Acre, está de volta trazendo suas medicinas ancestrais totalmente transformadoras, juntamente com seus rezos, músicas, força, alegria e muita cura e autoconhecimento.</p>
+                <p>Estaremos Juntos Novamente, Celebrando e nos Curando, através das Medicinas Sagradas Ancestrais na Guiança da Cerimônia <span class="highlight">Txuã Pakamaytê</span> e <span class="highlight">Inu Ninawá</span>.</p>
                 
                 <div class="callout">
-                    <p>Você anda sentindo o Chamado?</p>
-                    <p>Então venha participar da última cerimônia do ano e se conectar com o seu Eu</p>
+                    <p>Na Guiança do Ritual Cacique Txuã Pakamaytê e Inu Ninawá, junto comitiva Bailado da Floresta!</p>
                 </div>
                 
-                <p>Imersos na Mata Atlântica... Teremos Sopa de Legumes e Café da Manhã, aceitando a colaboração para trazer frutas, suco, alimentação leve.</p>
+                <p><strong>Medicinas da Floresta:</strong></p>
+                <ul class="rules-list">
+                    <li>NIXI PAE (Ayahuasca)</li>
+                    <li>RUME RESKE (Rapé)</li>
+                    <li>SHÃNETSAMATE (Sananga)</li>
+                    <li>KAMBÔ (Vacina do Sapo)</li>
+                    <li>HÃMPAYA (Batismo da Pimenta)</li>
+                </ul>
+                
+                <p>📍 Local: Espaço de Cura São Miguel - São João Batista 2, Peruíbe-SP</p>
                 
                 <h3 class="section-title">Trazer</h3>
                 <ul class="rules-list">
-                    <li>Agasalhos/Coberta/Esteira/Cadeira de praia</li>
+                    <li>Papel Higiênico</li>
+                    <li>Esteira ou colchonete</li>
+                    <li>Cadeira de Praia</li>
+                    <li>Agasalhos</li>
                     <li>Repelente</li>
-                    <li>Papel higiênico</li>
-                    <li>Pertences pessoais</li>
-                    <li>O que sentir confortável</li>
+                    <li>Seus pertences, para se sentir confortável!</li>
                 </ul>
                 
-                <p>📍 Local Espaço Fibras da Teia 
-                    Bairro estação, perto da rodoviária de Peruíbe-SP</p>
-                <p>⛰ Mesmo local da cerimônia anterior</p>
+                <p>Aceitamos doações de Velas!</p>
             </div>
             <div class="ritual-image">
-                <img src="a6.jpg" alt="Cacique Txuã e Inu Nenawá - Povo Huni Kuin">
+                <img src="a7.jpg" alt="Cacique Txuã e Inu Nenawá - Povo Huni Kuin">
+            </div>
+        </div>
+        
+        <div class="section" id="programacao">
+            <h2 class="section-title">Programação Completa</h2>
+            
+            <div class="schedule">
+                <div class="schedule-item">
+                    <div class="schedule-time">Durante a Tarde</div>
+                    <div class="schedule-description">Pintura Corporal Urucum e Jenipapo</div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">19:00 Horas</div>
+                    <div class="schedule-description">Roda de Rapé</div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">20:00 - 21:00 Horas</div>
+                    <div class="schedule-description">Janta Sopa de Legumes (Pré Cerimônia)</div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">22:00 Horas</div>
+                    <div class="schedule-description">INÍCIO DO RITUAL - 8 Horas de Rezos Huni Kuin</div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">Durante a Cerimônia</div>
+                    <div class="schedule-description">Rapé e Sananga em aberto, Fogueira, Danças e muita energia boa</div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">06:00 Horas</div>
+                    <div class="schedule-description">Término do Ritual</div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">07:00 - 08:00 Horas</div>
+                    <div class="schedule-description">Hãpaya ou Kambô (Pós Cerimônia)</div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">Após o Ritual</div>
+                    <div class="schedule-description">Café da Manhã com Mesa Colaborativa (alimentos leves, frutas, sucos, chás)</div>
+                </div>
             </div>
         </div>
         
@@ -630,20 +717,19 @@
         
         <div class="section" id="regras">
             <h2 class="section-title">Regras para o Ritual</h2>
-            <p>Ficar três ou mais dias antes da cerimônia sem:</p>
+            <p>Ficar três dias antes da cerimônia sem:</p>
             <ul class="rules-list">
                 <li>CARNES</li>
-                <li>COMIDAS GORDUROSAS</li>
-                <li>REMEDIOS FORTES</li>
                 <li>DROGAS</li>
-                <li>SEXO</li>                    
+                <li>SEXO</li>
+                <li>REMEDIOS FORTES</li>                    
             </ul>
             
             <div class="warning-box">
                 <p><strong>IMPORTANTE:</strong> Pessoas com laudo de esquizofrenia и ETRC não podem participar da cerimônia.</p>
             </div>
             
-            <p>✨ Fiquem à vontade para trazer instrumentos musicals e soltar a Voz. 🍃</p>
+            <p>✨ Fiquem à vontade para trazer instrumentos musicais e soltar a Voz. 🍃</p>
         </div>
         
         <div class="section" id="ficha">
@@ -886,16 +972,16 @@
                 
                 <h3>Valores:</h3>
                 <ul class="rules-list">
-                    <li><strong>Cerimônia:</strong> R$ 180,00</li>
+                    <li><strong>Cerimônia:</strong> R$ 185,00 (mínimo R$ 125,00)</li>
                     <li><strong>Kambô (veneno do sapo - opcional):</strong> R$ 150,00</li>
-                    <li><strong>Hanapaya (batismo da pimenta - opcional):</strong> R$ 150,00</li>
+                    <li><strong>Hãmpaya (batismo da pimenta - opcional):</strong> R$ 150,00</li>
                 </ul>
                 
-                <p><strong>Medicinas inclusas no valor da cerimônia:</strong> Rapé, Ayahuasca, Defumação, Sananga</p>
+                <p><strong>Medicinas inclusas no valor da cerimônia:</strong> Rapé, Ayahuasca, Defumação, Sananga, Pintura Corporal</p>
                 
                 <h3>Chave PIX:</h3>
                 <div class="pix-code">mazeraa21@gmail.com</div>
-                <p><strong>Titular:</strong> Francisco Edson Pereira Marroque</p>
+                <p><strong>Titular:</strong> Emanuela Tavares</p>
                 <p><strong>Banco:</strong> Banco do Brasil</p>
                 
                 <div class="buttons">
@@ -906,34 +992,33 @@
             </div>
         </div>
         
-        <!-- EVENTO ATUAL - NOVEMBRO (AGORA É O EVENTO ATUAL) -->
+        <!-- EVENTO ATUAL - NOVEMBRO -->
         <div class="section" id="evento-atual">
-            <h2 class="section-title">Evento Atual - Última Cerimônia do Ano</h2>
+            <h2 class="section-title">Cerimônia Tradicional Huni Kuin - 22 de Novembro</h2>
             
             <div class="next-event">
                 <div class="event-info">
                     <h3>POVO HUNI KUIN, ELE VOLTOU 😍💪🏻</h3>
-                    <h4>Última Cerimônia do Ano - 15 de Novembro às 18h</h4>
+                    <h4>Cerimônia Tradicional - 22 de Novembro (Sábado)</h4>
                     
-                    <p><strong>CACIQUE TXUÃ</strong> acompanhado do seu sobrinho <strong>INU NENAWA</strong> originários Povo Huni Kuin do Acre, trazendo suas medicinas ancestrais totalmente transformadoras... junto seus rezos, suas músicas, suas forças, alegria e muita Cura e autoconhecimento!</p>
+                    <p><strong>CACIQUE TXUÃ PAKAMAYTÊ</strong> acompanhado do seu sobrinho <strong>INU NINAWÁ</strong> originários Povo Huni Kuin do Acre, trazendo suas medicinas ancestrais totalmente transformadoras... junto seus rezos, suas músicas, suas forças, alegria e muita Cura e autoconhecimento!</p>
                     
                     <p>A GIBÓIA NÃO PARA, SÓ ALEGRIA E HAUX HAUX</p>
                     
-                    <p>Venha participar da Última Cerimônia do Ano e se conectar com o seu Eu, estamos em momento de Guerra e as Medicinas dadas pelo criador pela Mãe Gaia/Pachamama/Natureza... Vem nos mostrar a verdade a dor a cura e a liberdade.</p>
+                    <p>Venha participar desta Cerimônia e se conectar com o seu Eu, estamos em momento de Guerra e as Medicinas dadas pelo criador pela Mãe Gaia/Pachamama/Natureza... Vem nos mostrar a verdade a dor a cura e a liberdade.</p>
                     
                     <p>Expansão de Consciência 👁</p>
                     
-                    <p>Local Espaço Fibras da Teia 
-                    Bairro estação, perto da rodoviária de Peruíbe-SP</p>
+                    <p>Local Espaço de Cura São Miguel - São João Batista 2, Peruíbe-SP</p>
                     
-                    <p><strong>VALOR DA CERIMÔNIA: R$ 180,00</strong></p>
+                    <p><strong>VALOR DA CERIMÔNIA: R$ 185,00 (MÍNIMO R$ 125,00)</strong></p>
                     
-                    <p><strong>Medicinas Inclusas:</strong> Rapé, Ayahuasca, Defumação, Sananga</p>
+                    <p><strong>Medicinas Inclusas:</strong> Rapé, Ayahuasca, Defumação, Sananga, Pintura Corporal</p>
                     
                     <p><strong>Medicinas opcionais:</strong></p>
                     <ul class="rules-list">
                         <li>Kambô (veneno do sapo): R$ 150,00</li>
-                        <li>Hanapaya (batismo da pimenta): R$ 150,00</li>
+                        <li>Hãmpaya (batismo da pimenta): R$ 150,00</li>
                     </ul>
                     
                     <p>Terá Sopa antes de começar o ritual.</p>
@@ -943,24 +1028,23 @@
                 </div>
                 
                 <div class="event-image">
-                    <img src="a4.jpg" alt="Evento Atual - Última Cerimônia do Ano">
+                    <img src="a8.jpg" alt="Evento Atual - Cerimônia Tradicional Huni Kuin">
                 </div>
             </div>
         </div>
     </div>
     
     <footer id="contato">
-        <p>NO BAILADO DA FLORESTA - ÚLTIMA CERIMÔNIA HUNI KUÎN DO ANO</p>
+        <p>NO BAILADO DA FLORESTA - CERIMÔNIA TRADICIONAL HUNI KUIN</p>
         <p>Contato: <a href="https://wa.me/5513996983418" class="whatsapp-link">MANU - 13 99698-3418</a></p>
-        <p class="contact-info">Local Espaço Fibras da Teia 
-                    Bairro estação, perto da rodoviária de Peruíbe-SP</p>
+        <p class="contact-info">Local Espaço de Cura São Miguel - São João Batista 2, Peruíbe-SP</p>
     </footer>
 
     <div id="pdfContainer" style="display: none;">
         <div id="pdfContent" style="padding: 20px; font-family: Arial, sans-serif; background-color: #121212; color: #e0e0e0;">
             <h1 style="text-align: center; color: #d4af37;">FICHA DE ANAMNESE</h1>
-            <h2 style="text-align: center;">No Bailado da Floresta - Última Cerimônia Huni Kuîn do Ano</h2>
-            <p style="text-align: center;">Ritual com Medicinas da Floresta - 15 de Novembro</p>
+            <h2 style="text-align: center;">No Bailado da Floresta - Cerimônia Tradicional Huni Kuin</h2>
+            <p style="text-align: center;">Ritual com Medicinas da Floresta - 22 de Novembro</p>
             <hr style="border-color: #333;">
             <div id="pdfData"></div>
         </div>
@@ -1123,10 +1207,10 @@
             message += `*Data preenchimento:* ${data.dataPreenchimento || 'Não informado'}\n\n`;
             
             message += `*INSTRUÇÕES PARA PAGAMENTO:*\n`;
-            message += `Valor: R$ 180,00\n`;
+            message += `Valor: R$ 185,00 (mínimo R$ 125,00)\n`;
             message += `Chave PIX: mazeraa21@gmail.com\n`;
             message += `Titular: Emanuela Tavares\n`;
-            message += `Banco: Caixa Econômica Federal\n\n`;
+            message += `Banco: Banco do Brasil\n\n`;
             message += `*Envie o comprovante para este mesmo número após o pagamento.*`;
 
             // Codificar a mensagem para URL
